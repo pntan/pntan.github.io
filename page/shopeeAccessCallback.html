@@ -17,14 +17,18 @@
 			var content = atob(json.content); // Giải mã base64
 			var url = content.trim();
 
-			serverConnect(url);
+			return url;
 		} catch (e) {
 			console.error("Không thể lấy URL từ GitHub:", e.message);
 		}
 	}
 
-	var url_server = getUrlServer();
-
-	console.log(url_server);
-	console.log(window.location, window.location.href);
+	// ✅ dùng Promise thay cho await
+	getUrlServer().then(url_server => {
+		console.log("URL server:", url_server);
+		console.log(window.location.href);
+		if (url_server) {
+			serverConnect(url_server);
+		}
+	});
 </script>
