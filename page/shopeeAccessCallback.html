@@ -1,4 +1,4 @@
-<script type="text/javascript">
+<script type="module">
 	async function getUrlServer(){
 		var owner = 'pntan';
 		var repo = 'TPTOOL';
@@ -26,9 +26,9 @@
 	// ✅ dùng Promise thay cho await
 	getUrlServer().then(url_server => {
 		console.log("URL server:", url_server);
-		console.log(window.location.href);
+		var href = (window.location.href);
 		if (url_server) {
-			serverConnect(url_server);
+			console.log(url_server);
 		}
 	});
 </script>
