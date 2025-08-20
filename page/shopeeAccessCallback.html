@@ -1,0 +1,36 @@
+<script type="text/javascript">
+	async function getUrlServer(){
+		var owner = 'pntan';
+		var repo = 'TPTOOL';
+		var path = 'urlNgrok'; // tên file chứa URL
+		var branch = 'main';
+
+		try {
+			// Lấy file từ GitHub API
+			var res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}?_=${Date.now()}`, {
+				headers: {
+					Authorization: `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`,
+				}
+			});
+			var json = await res.json();
+			console.log(json);
+			var content = atob(json.content); // Giải mã base64
+			var url = content.trim();
+
+			if (socket && socket.connect){
+				boxToast(`Đã kết nối tới máy chủ rồi`, "info");
+				return;
+			}
+
+			serverConnect(url);
+		} catch (e) {
+			console.error("Không thể lấy URL từ GitHub:", e.message);
+			serverConnect(`https://127.0.0.1:2105`);
+		}
+	}
+
+	var url_server = await getUrlServer();
+
+	console.log(url_server);
+	console.log(window.localtion);
+</script>
