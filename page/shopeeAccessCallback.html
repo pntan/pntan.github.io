@@ -17,15 +17,9 @@
 			var content = atob(json.content); // Giải mã base64
 			var url = content.trim();
 
-			if (socket && socket.connect){
-				boxToast(`Đã kết nối tới máy chủ rồi`, "info");
-				return;
-			}
-
 			serverConnect(url);
 		} catch (e) {
 			console.error("Không thể lấy URL từ GitHub:", e.message);
-			serverConnect(`https://127.0.0.1:2105`);
 		}
 	}
 
@@ -33,6 +27,4 @@
 
 	console.log(url_server);
 	console.log(window.location, window.location.href);
-
 </script>
-
