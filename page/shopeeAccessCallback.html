@@ -9,7 +9,7 @@
 			// Lấy file từ GitHub API
 			var res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}?_=${Date.now()}`, {
 				headers: {
-					Authorization: `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`,
+					Authorization: `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`,
 				}
 			});
 			var json = await res.json();
@@ -28,7 +28,13 @@
 		console.log("URL server:", url_server);
 		var href = (window.location.href);
 		if (url_server) {
-			console.log(url_server);
+			var href = window.location.href;
+
+			href = href.split("?");
+
+			var query = href[href.length - 1];
+
+			window.location = `${url_server}?${query}`;
 		}
 	});
 </script>
