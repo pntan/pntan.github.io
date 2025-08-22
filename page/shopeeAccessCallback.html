@@ -9,7 +9,7 @@
 			// Lấy file từ GitHub API
 			var res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}?_=${Date.now()}`, {
 				headers: {
-					Authorization: `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`,
+					Authorization: `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`,
 				}
 			});
 			var json = await res.json();
@@ -38,3 +38,4 @@
 		}
 	});
 </script>
+
