@@ -1,0 +1,40 @@
+<script type="module">
+	async function getUrlServer(){
+		var owner = 'pntan';
+		var repo = 'TOOLv3';
+		var path = 'version'; // tên file chứa URL
+		var branch = 'main';
+
+		try {
+			// Lấy file từ GitHub API
+			var res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}?_=${Date.now()}`, {
+				headers: {
+					Authorization: `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`,
+				}
+			});
+			var json = await res.json();
+			console.log(json);
+			var content = atob(json.content); // Giải mã base64
+			var url = content.trim();
+
+			return url;
+		} catch (e) {
+			console.error("Không thể lấy URL từ GitHub:", e.message);
+		}
+	}
+
+	// ✅ dùng Promise thay cho await
+	getUrlServer().then(url_server => {
+		console.log("URL server:", url_server);
+		var href = (window.location.href);
+		if (url_server) {
+			var href = window.location.href;
+
+			href = href.split("?");
+
+			var query = href[href.length - 1];
+
+			window.location = `${url_server}/shopee/accessTokenCallback?${query}`;
+		}
+	});
+</script>
