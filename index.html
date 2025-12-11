@@ -29,60 +29,111 @@
 		<!-- SCRIPT -->
 		<script src="./assets/js/index.js" defer></script>
 	</head>
-	<div class="app">
-		<div class="header">
-			<div class="logo">
-				<div class="img-logo"><img src="./assets/media/logo.jpg" /></div>
-				<div class="text-logo">TânPhan</div>
-			</div>
-			<div class="navbar">
-				<a href="#home" class="nav-item">Trang Chủ</a>
-				<a href="#about" class="nav-item">Giới Thiệu</a>
-				<a href="#projects" class="nav-item">Dự Án</a>
-				<a href="#skills" class="nav-item">Kỹ Năng</a>
-				<a href="#contact" class="nav-item">Liên Hệ</a>
+	<body>
+		<div class="background-container">
+			<div class="blob blob-1"></div>
+			<div class="blob blob-2"></div>
+			<div class="blob blob-3"></div>
+		</div>
+
+		<div class="app">
+			<header class="glass-card header">
+				<div class="logo">TânPhan<span class="dot">.</span></div>
+				<nav class="navbar">
+					<a href="#about">Giới thiệu</a>
+					<a href="#projects">Dự án</a>
+					<a href="#contact" class="btn-contact">Liên hệ</a>
+				</nav>
+			</header>
+
+			<div class="bento-container">
+
+				<div class="glass-card area-intro">
+					<div class="intro-content">
+						<p class="greeting">Xin chào, tôi là</p>
+						<h1 class="name">Phan Nhật Tân</h1>
+						<h2 class="title">Web Developer & Freelancer</h2>
+						<p class="desc">
+							Sinh viên CNTT trường Cao đẳng Lý Tự Trọng với đam mê mãnh liệt về lập trình Web và ứng dụng.
+							Tôi mong muốn tham gia các dự án thực tế để phát triển bản thân và đóng góp giá trị.
+						</p>
+						<div class="actions">
+							<a href="#contact" class="btn-primary">Tải CV</a>
+							<a href="#projects" class="btn-secondary">Xem Dự Án</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="glass-card area-avatar">
+					<div class="avatar-wrapper">
+						<img src="./assets/media/logo.jpg" alt="Phan Nhật Tân Avatar">
+					</div>
+				</div>
+
+				<div class="glass-card area-social">
+					<h3>Kết nối</h3>
+					<div class="social-list">
+						<a href="https://facebook.com/pntan215" target="_blank" class="social-item"><i class="fab fa-facebook-f"></i></a>
+						<a href="https://codepen.io/TanPhan" target="_blank" class="social-item"><i class="fab fa-codepen"></i></a>
+						<a href="mailto:nhattanphan2014@gmail.com" class="social-item"><i class="fas fa-envelope"></i></a>
+					</div>
+				</div>
+
+				<div class="glass-card area-skills">
+					<h3>Kỹ Năng Chính</h3>
+					<div class="skill-tags">
+						<span class="tag">HTML/CSS</span>
+						<span class="tag">SASS</span>
+						<span class="tag">JavaScript</span>
+						<span class="tag">PHP/MySQL</span>
+						<span class="tag">Wordpress</span>
+						<span class="tag highlight">Python</span>
+						<span class="tag highlight">C# Winform</span>
+						<span class="tag">Photoshop</span>
+						<span class="tag">Git</span>
+					</div>
+				</div>
+
+				<div class="glass-card area-stats">
+					<h3>Thành Tích</h3>
+					<ul class="stats-list">
+						<li>
+							<i class="fas fa-trophy"></i>
+							<span>Giải 3 HSG Nghề Cấp TP</span>
+						</li>
+						<li>
+							<i class="fas fa-award"></i>
+							<span>Học bổng SV Giỏi</span>
+						</li>
+						<li>
+							<i class="fas fa-code"></i>
+							<span>Giải 4 Thuật Toán Khoa</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="glass-card area-projects" id="projects">
+					<h3>Dự Án Tiêu Biểu</h3>
+					<div class="project-grid">
+						<div class="project-item">
+							<div class="prj-icon"><i class="fab fa-discord"></i></div>
+							<h4>Bot Discord Đa Năng</h4>
+							<p>Python, API, Music, Chat AI. Hỗ trợ tra cứu, nghe nhạc và quản lý server.</p>
+						</div>
+						<div class="project-item">
+							<div class="prj-icon"><i class="fas fa-coffee"></i></div>
+							<h4>Quản Lý Quán Cafe</h4>
+							<p>PHP, MySQL, SASS. Hệ thống gọi món, quản lý kho và thống kê doanh thu.</p>
+						</div>
+						<div class="project-item">
+							<div class="prj-icon"><i class="fas fa-book"></i></div>
+							<h4>Quản Lý Thư Viện</h4>
+							<p>C# Winform, SQL Server. Quản lý sách, độc giả và phiếu mượn trả.</p>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
-		<div class="container">
-			<div class="section intro-section">
-				<div class="left">
-					<div class="full-name">Phan Nhật Tân</div>
-					<div class="job-title">Freelancer</div>
-					<div class="description">
-						Chào mừng bạn đến với trang portfolio của tôi! Tôi là Phan Nhật Tân, một lập trình viên đam mê phát triển web và ứng dụng. Trên trang này, bạn sẽ tìm thấy các dự án mà tôi đã thực hiện, kỹ năng mà tôi sở hữu, và cách để liên hệ với tôi. Hãy cùng khám phá nhé!
-					</div>
-				</div>
-				<div class="right">
-					<div class="contact">
-						<div class="contact-platform">
-							<p><a href="#">Facebook</a></p>
-						</div>
-						<div class="contact-platform">
-							<p><a href="#">Github</a></p>
-						</div>
-						<div class="contact-platform">
-							<p><a href="#">Codepen</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="section project">
-				<div class="project-title">Dự Án Nổi Bật</div>
-				<div class="project-list">
-					<div class="project-item">
-						<div class="project-name">Website Bán Hàng</div>
-						<div class="project-description">Một trang web thương mại điện tử hoàn chỉnh với giỏ hàng và thanh toán trực tuyến.</div>
-					</div>
-					<div class="project-item">
-						<div class="project-name">Ứng Dụng Quản Lý Công Việc</div>
-						<div class="project-description">Ứng dụng giúp người dùng quản lý công việc hàng ngày một cách hiệu quả.</div>
-					</div>
-					<div class="project-item">
-						<div class="project-name">Blog Cá Nhân</div>
-						<div class="project-description">Một blog cá nhân nơi tôi chia sẻ về các chủ đề công nghệ và lập trình.</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	</body>
 </html>

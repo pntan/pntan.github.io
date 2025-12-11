@@ -1,126 +1,365 @@
-$main-color: #3F8CFF
-$sub-color: #66748f
+// =========================================
+// 1. CONFIGURATION (VARIABLES)
+// =========================================
+
+// Background Palette (Deep Future)
+$bg-base: #0f172a         // Xanh đen đậm (Nền chính)
+$blob-1: #7c3aed          // Tím Violet (Khối trôi 1)
+$blob-2: #0ea5e9          // Xanh Cyan (Khối trôi 2)
+$blob-3: #ec4899          // Hồng Neon (Khối trôi 3)
+
+// Glass Style (Light Glass)
+$glass-bg: rgba(255, 255, 255, 0.08)       // Kính trắng mờ
+$glass-border: rgba(255, 255, 255, 0.2)    // Viền kính sáng
+$glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) // Bóng đổ
+$glass-blur: 20px                          // Độ mờ
+
+// Typography Colors
+$text-main: #ffffff       // Trắng tinh
+$text-sub: #cbd5e1        // Xám xanh nhạt
+$text-accent: #38bdf8     // Xanh sáng (Highlight)
+
+// Spacing
+$gap: 20px
+$radius: 24px
+
+// =========================================
+// 2. MIXINS & RESET
+// =========================================
+
+@mixin glass-morphism
+	background: $glass-bg
+	backdrop-filter: blur($glass-blur)
+	-webkit-backdrop-filter: blur($glass-blur)
+	border: 1px solid $glass-border
+	border-radius: $radius
+	box-shadow: $glass-shadow
 
 *
 	padding: 0
 	margin: 0
 	box-sizing: border-box
-	border: none
-	text-decoration: none
-	list-style: none
-	user-select: none
-	scroll-behavior: smooth
+	font-family: 'Montserrat', sans-serif
 
 body
-	font-family: 'Montserrat', Segoe UI, Tahoma, Geneva, Verdana, sans-serif
-	background-color: #48494b
-	color: #fff
-	margin: 0
-	padding: 0
+	background-color: $bg-base
+	color: $text-main
+	overflow-x: hidden
+	min-height: 100vh
 
-	.app
-		height: 100vh
+// =========================================
+// 3. ANIMATED BACKGROUND
+// =========================================
+
+.background-container
+	position: fixed
+	top: 0
+	left: 0
+	width: 100vw
+	height: 100vh
+	z-index: -1
+	overflow: hidden
+
+	.blob
+		position: absolute
+		border-radius: 50%
+		filter: blur(80px)
+		opacity: 0.6
+		animation: float 10s infinite alternate
+
+	.blob-1
+		top: 10%
+		left: 10%
+		width: 500px
+		height: 500px
+		background: $blob-1
+		animation-delay: 0s
+
+	.blob-2
+		bottom: 20%
+		right: 10%
+		width: 400px
+		height: 400px
+		background: $blob-2
+		animation-delay: -5s
+
+	.blob-3
+		top: 40%
+		left: 40%
+		width: 300px
+		height: 300px
+		background: $blob-3
+		animation-delay: -2s
+
+@keyframes float
+	0%
+		transform: translate(0, 0) scale(1)
+	100%
+		transform: translate(30px, 50px) scale(1.1)
+
+// =========================================
+// 4. MAIN LAYOUT (BENTO GRID)
+// =========================================
+
+.app
+	width: 100%
+	min-height: 100vh
+	padding: 2vh 5vw
+	display: flex
+	flex-direction: column
+	gap: $gap
+
+// --- Header ---
+.header
+	width: 100%
+	height: 70px
+	display: flex
+	align-items: center
+	justify-content: space-between
+	padding: 0 2rem
+	@include glass-morphism
+	z-index: 10
+
+	.logo
+		font-size: 1.5rem
+		font-weight: 700
+		letter-spacing: 1px
+
+		.dot
+			color: $text-accent
+
+	.navbar
+		display: flex
+		gap: 2rem
+
+		a
+			text-decoration: none
+			color: $text-sub
+			font-weight: 500
+			transition: 0.3s
+
+			&:hover
+				color: $text-main
+		
+		.btn-contact
+			padding: 8px 20px
+			background: rgba(255,255,255,0.1)
+			border-radius: 20px
+
+			&:hover
+				background: $text-accent
+				color: $bg-base
+
+// --- Grid Container ---
+.bento-container
+	display: grid
+	grid-template-columns: repeat(4, 1fr)
+	grid-template-rows: repeat(4, auto) // Auto height
+	gap: $gap
+	padding-bottom: 2rem
+	
+	// Grid Areas Definitions
+	grid-template-areas: "intro intro intro avatar" "intro intro intro avatar" "social skills skills stats" "projects projects projects projects"
+
+	// Responsive: Tablet & Mobile
+	@media (max-width: 1024px)
+		grid-template-columns: 1fr 1fr
+		grid-template-areas: "intro intro" "avatar social" "skills skills" "stats stats" "projects projects"
+
+	@media (max-width: 768px)
 		display: flex
 		flex-direction: column
-		align-items: center
-		justify-content: flex-start
-		overflow: hidden
 
-		.header
-			width: 100%
-			height: 5vh
-			overflow: hidden
-			display: flex
-			flex-direction: row
-			align-items: center
-			justify-content: space-between
-			padding: .25vh 2vw
-			background: rgba(255, 255, 255, 0.1)
-			backdrop-filter: blur(10px)
-			box-shadow: 5px 5px 50px rgb(0, 0, 0)
-			
+// --- Universal Card Style ---
+.glass-card
+	@include glass-morphism
+	padding: 2rem
+	transition: transform 0.3s ease
 
-			.logo
-				height: 100%
-				display: flex
-				flex-direction: row
-				align-items: center
-				justify-content: flex-start
-				font-size: 1.5rem
-				font-weight: 700
-				color: $main-color
-				letter-spacing: 2px
-				cursor: pointer
-				gap: .5vw
+	&:hover
+		transform: translateY(-5px)
+		border-color: rgba(255,255,255, 0.4)
 
-				.img-logo
-					width: auto
-					height: 100%
-					aspect-ratio: 1 / 1
+	h3
+		font-size: 1.2rem
+		margin-bottom: 1rem
+		color: $text-sub
+		text-transform: uppercase
+		letter-spacing: 1px
+		font-size: 0.9rem
 
-					img
-						width: 100%
-						height: auto
-						border-radius: 100%
+// =========================================
+// 5. COMPONENT STYLES
+// =========================================
 
-			.navbar
-				height: 100%
-				display: flex
-				flex-direction: row
-				align-items: center
-				justify-content: flex-end
-				gap: 3vw
-
-				.nav-item
-					font-size: 1rem
-					font-weight: 500
-					cursor: pointer
-					transition: color .3s ease-in-out
-					position: relative
-					padding: .75vh .75vw
-					color: #fff
-
-					&::after
-						content: ''
-						position: absolute
-						width: 100%
-						height: 100%
-						background-color: $main-color
-						transition: .3s
-						background: #fff
-						left: 0
-						top: 100%
-						z-index: -1
-
-					&:hover
-						color: $main-color
-
-						&::after
-							height: 100%
-							top: 0
-							border-radius: 10px
+// Area: Intro
+.area-intro
+	grid-area: intro
+	display: flex
+	flex-direction: column
+	justify-content: center
 	
-		.container
+	.greeting
+		color: $text-accent
+		font-weight: 600
+		margin-bottom: 0.5rem
+
+	.name
+		font-size: 3rem
+		font-weight: 700
+		margin-bottom: 0.5rem
+		background: linear-gradient(to right, #fff, $text-sub)
+		-webkit-background-clip: text
+		-webkit-text-fill-color: transparent
+
+	.title
+		font-size: 1.5rem
+		color: $text-sub
+		margin-bottom: 1.5rem
+		font-weight: 400
+
+	.desc
+		line-height: 1.6
+		color: $text-sub
+		max-width: 90%
+		margin-bottom: 2rem
+
+	.actions
+		display: flex
+		gap: 1rem
+		
+		a
+			text-decoration: none
+			padding: 12px 30px
+			border-radius: 8px
+			font-weight: 600
+			transition: 0.3s
+
+		.btn-primary
+			background: $text-accent
+			color: $bg-base
+
+			&:hover
+				filter: brightness(1.1)
+				box-shadow: 0 0 15px rgba($text-accent, 0.5)
+
+		.btn-secondary
+			border: 1px solid rgba(255,255,255,0.3)
+			color: #fff
+
+			&:hover
+				background: rgba(255,255,255,0.1)
+
+// Area: Avatar
+.area-avatar
+	grid-area: avatar
+	padding: 0
+	overflow: hidden
+	display: flex
+	align-items: center
+	justify-content: center
+	
+	.avatar-wrapper
+		width: 100%
+		height: 100%
+		position: relative
+		
+		img
 			width: 100%
-			height: calc(100% - 5vh)
-			padding: 2vh 2vw
-			overflow: hidden
-			display: flex
-			flex-direction: row
-			align-items: flex-start
-			justify-content: center
-			gap: 10vw
+			height: 100%
+			object-fit: cover
+			display: block
 
-			.section
-				width: 100%
-				height: fit-content
-				overflow-y: auto
-				padding-right: 1vw
-				background: rgba(0, 0, 0, 0.199)
-				padding: 2vh 2vw
-				border-radius: 10px
-				box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45)
-				border: 1px solid rgba(255, 255, 255, 0.25)
-				backdrop-filter: blur(18px)
+// Area: Social
+.area-social
+	grid-area: social
+	display: flex
+	flex-direction: column
+	justify-content: center
+	
+	.social-list
+		display: flex
+		gap: 1.5rem
+		margin-top: 0.5rem
+		
+		.social-item
+			font-size: 1.5rem
+			color: $text-main
+			transition: 0.3s
 
+			&:hover
+				color: $text-accent
+				transform: scale(1.2)
+
+// Area: Skills
+.area-skills
+	grid-area: skills
+	
+	.skill-tags
+		display: flex
+		flex-wrap: wrap
+		gap: 10px
+		
+		.tag
+			padding: 8px 16px
+			background: rgba(255,255,255,0.05)
+			border-radius: 20px
+			font-size: 0.85rem
+			border: 1px solid rgba(255,255,255,0.1)
 			
+			&.highlight
+				background: rgba($text-accent, 0.15)
+				border-color: $text-accent
+				color: lighten($text-accent, 10%)
+
+// Area: Stats / Awards
+.area-stats
+	grid-area: stats
+	
+	.stats-list
+		list-style: none
+		li
+			display: flex
+			align-items: center
+			gap: 12px
+			margin-bottom: 12px
+			color: $text-sub
+			font-size: 0.9rem
+			
+			i
+				color: $text-accent
+				font-size: 1.1rem
+
+// Area: Projects
+.area-projects
+	grid-area: projects
+	
+	.project-grid
+		display: grid
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+		gap: 20px
+		
+		.project-item
+			background: rgba(0,0,0,0.2)
+			padding: 1.5rem
+			border-radius: 16px
+			border: 1px solid rgba(255,255,255,0.05)
+			transition: 0.3s
+			
+			&:hover
+				background: rgba(255,255,255,0.05)
+			
+			.prj-icon
+				font-size: 2rem
+				color: $text-accent
+				margin-bottom: 1rem
+			
+			h4
+				font-size: 1.1rem
+				margin-bottom: 0.5rem
+				color: $text-main
+			
+			p
+				font-size: 0.85rem
+				color: $text-sub
+				line-height: 1.5
