@@ -1,4 +1,4 @@
-$main-color: #F7882F
+$main-color: #3F8CFF
 $sub-color: #66748f
 
 *
@@ -13,7 +13,7 @@ $sub-color: #66748f
 
 body
 	font-family: 'Montserrat', Segoe UI, Tahoma, Geneva, Verdana, sans-serif
-	background-color: $sub-color
+	background-color: #48494b
 	color: #fff
 	margin: 0
 	padding: 0
@@ -38,7 +38,7 @@ body
 			background: rgba(255, 255, 255, 0.1)
 			backdrop-filter: blur(10px)
 			box-shadow: 5px 5px 50px rgb(0, 0, 0)
-			position: fixed
+			
 
 			.logo
 				height: 100%
@@ -51,7 +51,7 @@ body
 				color: $main-color
 				letter-spacing: 2px
 				cursor: pointer
-				gap: 2vw
+				gap: .5vw
 
 				.img-logo
 					width: auto
@@ -105,39 +105,22 @@ body
 			height: calc(100% - 5vh)
 			padding: 2vh 2vw
 			overflow: hidden
-			top: 5vh
+			display: flex
+			flex-direction: row
+			align-items: flex-start
+			justify-content: center
+			gap: 10vw
 
-			.portfolio
+			.section
 				width: 100%
-				height: 100%
-				background: rgba(255, 255, 255, 0.1)
-				backdrop-filter: blur(10px)
-				box-shadow: 5px 5px 50px rgb(0, 0, 0)
-				border-radius: 15px
-				position: fixed
-				flex-direction: column
-				align-items: center
-				justify-content: center
-				font-size: 2rem
-				font-weight: 700
-				color: #fff
+				height: fit-content
+				overflow-y: auto
+				padding-right: 1vw
+				background: rgba(0, 0, 0, 0.199)
 				padding: 2vh 2vw
-				top: 7vh
+				border-radius: 10px
+				box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45)
+				border: 1px solid rgba(255, 255, 255, 0.25)
+				backdrop-filter: blur(18px)
 
-			.other-content
-				width: 100%
-				height: 100%
-				background: rgba(255, 255, 255, 0.1)
-				backdrop-filter: blur(10px)
-				box-shadow: 5px 5px 50px rgb(0, 0, 0)
-				border-radius: 15px
-				display: fixed
-				flex-direction: column
-				align-items: center
-				justify-content: center
-				font-size: 2rem
-				font-weight: 700
-				color: #fff
-				padding: 2vh 2vw
-				position: absolute
-				top: 100%
+			
