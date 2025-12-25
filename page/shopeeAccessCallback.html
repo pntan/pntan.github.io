@@ -1,25 +1,18 @@
 <script type="module">
 	async function getUrlServer(){
-		var owner = 'pntan';
-		var repo = 'TPTOOL';
-		var path = 'urlNgrok'; // tên file chứa URL
-		var branch = 'main';
+		var time = Date.now();
+		const url = `https://pntan.github.io/chuanmuangrok.json?timestamp=${time}`;
 
 		try {
-			// Lấy file từ GitHub API
-			var res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}?_=${Date.now()}`, {
-				headers: {
-					Authorization: `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`,
-				}
+			const response = await fetch(url, {
+				cache: "no-store"
 			});
-			var json = await res.json();
-			console.log(json);
-			var content = atob(json.content); // Giải mã base64
-			var url = content.trim();
-
-			return url;
-		} catch (e) {
-			console.error("Không thể lấy URL từ GitHub:", e.message);
+			if (!response.ok) throw new Error('Network response was not ok');
+			const data = await response.json();
+			return data.url;
+		} catch (error) {
+			console.error('Lỗi khi fetch URL từ GitHub:', error);
+			return null;
 		}
 	}
 
@@ -38,3 +31,4 @@
 		}
 	});
 </script>
+
