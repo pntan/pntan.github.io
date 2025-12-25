@@ -1,35 +1,35 @@
 <script type="module">
 	async function getUrlServer(){
 		var time = Date.now();
+		// Thêm timestamp để tránh cache của GitHub Pages
 		const url = `https://pntan.github.io/chuanmuangrok.json?timestamp=${time}`;
 
 		try {
-			const response = await fetch(url, {
-				cache: "no-store"
-			});
+			const response = await fetch(url, { cache: "no-store" });
 			if (!response.ok) throw new Error('Network response was not ok');
 			const data = await response.json();
-			return data.url;
+			return data.url; // Ví dụ: "https://abcd-123.ngrok-free.app"
 		} catch (error) {
 			console.error('Lỗi khi fetch URL từ GitHub:', error);
 			return null;
 		}
 	}
 
-	// ✅ dùng Promise thay cho await
 	getUrlServer().then(url_server => {
-		console.log("URL server:", url_server);
-		var href = (window.location.href);
 		if (url_server) {
-			var href = window.location.href;
+			// Lấy toàn bộ query string hiện tại (?code=...&shop_id=...&state=...)
+			const currentSearch = window.location.search;
+            
+            // Log để debug (có thể xóa sau này)
+			console.log("Redirecting to:", `${url_server}/callback/shopee/accessTokenCallback${currentSearch}`);
 
-			href = href.split("?");
-
-			var query = href[href.length - 1];
-
-			window.location = `${url_server}/callback/shopee/accessTokenCallback?${query}`;
-		}
+			// Redirect về Ngrok server kèm theo nguyên bộ query string
+			window.location.href = `${url_server}/callback/shopee/accessTokenCallback${currentSearch}`;
+		} else {
+            document.body.innerHTML = "<h1>Không tìm thấy Server! Vui lòng liên hệ Admin.</h1>";
+        }
 	});
 </script>
+
 
 
