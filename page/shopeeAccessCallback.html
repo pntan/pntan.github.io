@@ -19,6 +19,8 @@
 		if (url_server) {
 			// Lấy toàn bộ query string hiện tại (?code=...&shop_id=...&state=...)
 			const currentSearch = window.location.search;
+
+			url_server = "https://localhost:5173";
             
             // Log để debug (có thể xóa sau này)
 			console.log("Redirecting to:", `${url_server}/callback/shopee/accessTokenCallback${currentSearch}`);
@@ -30,6 +32,7 @@
         }
 	});
 </script>
+
 
 
 
