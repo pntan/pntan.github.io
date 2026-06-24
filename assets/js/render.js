@@ -1,206 +1,201 @@
-$(function () {
+$(function() {
 
-    const p = portfolioData;
+  const p = portfolioData;
 
-    $("#hero").html(`
-        <div class="min-h-screen flex items-center container mx-auto px-6">
+  $("#hero").html(`
+<div class="min-h-screen flex items-center container mx-auto px-6">
 
-            <div class="max-w-3xl">
+  <div class="max-w-3xl">
 
-                <p class="text-zinc-500 tracking-[5px] mb-4">
-                    PORTFOLIO
-                </p>
+    <p class="text-zinc-500 tracking-[5px] mb-4">
+      PORTFOLIO
+    </p>
 
-                <h1 class="hero-title">
-                    ${p.profile.name}
-                </h1>
+    <h1 class="hero-title">
+      ${p.profile.name}
+    </h1>
 
-                <section id="marquee">
+    <section id="marquee">
 
-                <div class="marquee">
+      <div class="marquee">
 
-                  HTML CSS JS PHP
-                  PYTHON WORDPRESS
-                  MYSQL GSAP
-                  THREEJS
+        HTML CSS JS PHP
+        PYTHON WORDPRESS
+        MYSQL GSAP
+        THREEJS
 
-                </div>
+      </div>
 
-                </section>
+    </section>
 
-                <h2 class="text-2xl text-zinc-400 mt-4">
-                    ${p.profile.role}
-                </h2>
+    <h2 class="text-2xl text-zinc-400 mt-4">
+      ${p.profile.role}
+    </h2>
 
-                <p class="mt-8 text-zinc-500 leading-8 max-w-xl">
-                    ${p.profile.description}
-                </p>
+    <p class="mt-8 text-zinc-500 leading-8 max-w-xl">
+      ${p.profile.description}
+    </p>
 
-            </div>
+  </div>
 
-        </div>
-    `);
+</div>
+`);
 
-    $("#about").html(`
-        <div class="container mx-auto px-6 py-32">
+  $("#about").html(`
+<div class="container mx-auto px-6 py-32">
 
-            <div class="grid md:grid-cols-2 gap-16 items-center">
+  <div class="grid md:grid-cols-2 gap-16 items-center">
 
-                <img
-                    src="${p.profile.avatar}"
-                    class="avatar"
-                >
+    <img src="${p.profile.avatar}" class="avatar">
 
-                <div>
+    <div>
 
-                    <h2 class="section-title">
-                        ABOUT
-                    </h2>
+      <h2 class="section-title">
+        ABOUT
+      </h2>
 
-                    <p class="about-text">
-                        ${p.profile.description}
-                    </p>
+      <p class="about-text">
+        ${p.profile.description}
+      </p>
 
-                </div>
+    </div>
 
-            </div>
+  </div>
 
-        </div>
-    `);
+</div>
+`);
 
-    let skills = "";
+  let skills = "";
 
-    p.skills.forEach(skill => {
+  p.skills.forEach(skill => {
 
-        skills += `
-            <div class="mb-8">
+    skills += `
+<div class="mb-8">
 
-                <div class="flex justify-between mb-2">
+  <div class="flex justify-between mb-2">
 
-                    <span>${skill.name}</span>
+    <span>${skill.name}</span>
 
-                    <span>${skill.level}%</span>
+    <span>${skill.level}%</span>
 
-                </div>
+  </div>
 
-                <div class="skill-bar">
+  <div class="skill-bar">
 
-                    <div
-                        class="skill-fill"
-                        data-width="${skill.level}">
-                    </div>
+    <div class="skill-fill" data-width="${skill.level}">
+    </div>
 
-                </div>
+  </div>
 
-            </div>
-        `;
+</div>
+`;
 
-    });
+  });
 
-    $("#skills").html(`
-        <div class="container mx-auto px-6 py-32">
+  $("#skills").html(`
+<div class="container mx-auto px-6 py-32">
 
-            <h2 class="section-title mb-20">
-                SKILLS
-            </h2>
+  <h2 class="section-title mb-20">
+    SKILLS
+  </h2>
 
-            ${skills}
+  ${skills}
 
-        </div>
-    `);
+</div>
+`);
 
-    let projects = "";
+  let projects = "";
 
-    p.projects.forEach(project => {
+  p.projects.forEach(project => {
 
-        projects += `
-            <div class="project-card">
+    projects += `
+<div class="project-card">
 
-                <h3>
-                    ${project.title}
-                </h3>
+  <h3>
+    ${project.title}
+  </h3>
 
-                <p>
-                    ${project.description}
-                </p>
+  <p>
+    ${project.description}
+  </p>
 
-                <div class="flex gap-2 mt-4 flex-wrap">
+  <div class="flex gap-2 mt-4 flex-wrap">
 
-                    ${project.stack.map(s => `
-                        <span class="tag">${s}</span>
-                    `).join("")}
+    ${project.stack.map(s => `
+    <span class="tag">${s}</span>
+    `).join("")}
 
-                </div>
+  </div>
 
-            </div>
-        `;
-    });
+</div>
+`;
+  });
 
-    $("#projects").html(`
-        <div class="container mx-auto px-6 py-32">
+  $("#projects").html(`
+<div class="container mx-auto px-6 py-32">
 
-            <h2 class="section-title mb-20">
-                PROJECTS
-            </h2>
+  <h2 class="section-title mb-20">
+    PROJECTS
+  </h2>
 
-            <div class="grid md:grid-cols-3 gap-8">
+  <div class="grid md:grid-cols-3 gap-8">
 
-                ${projects}
+    ${projects}
 
-            </div>
+  </div>
 
-        </div>
-    `);
+</div>
+`);
 
-    let timeline = "";
+  let timeline = "";
 
-    p.achievements.forEach(item => {
+  p.achievements.forEach(item => {
 
-        timeline += `
-            <div class="timeline-item">
+    timeline += `
+<div class="timeline-item">
 
-                <span class="year">
-                    ${item.year}
-                </span>
+  <span class="year">
+    ${item.year}
+  </span>
 
-                <h3>
-                    ${item.title}
-                </h3>
+  <h3>
+    ${item.title}
+  </h3>
 
-            </div>
-        `;
-    });
+</div>
+`;
+  });
 
-    $("#timeline").html(`
-        <div class="container mx-auto px-6 py-32">
+  $("#timeline").html(`
+<div class="container mx-auto px-6 py-32">
 
-            <h2 class="section-title mb-20">
-                TIMELINE
-            </h2>
+  <h2 class="section-title mb-20">
+    TIMELINE
+  </h2>
 
-            ${timeline}
+  ${timeline}
 
-        </div>
-    `);
+</div>
+`);
 
-    $("#contact").html(`
-        <div class="container mx-auto px-6 py-32">
+  $("#contact").html(`
+<div class="container mx-auto px-6 py-32">
 
-            <h2 class="section-title mb-20">
-                CONTACT
-            </h2>
+  <h2 class="section-title mb-20">
+    CONTACT
+  </h2>
 
-            <div class="terminal">
+  <div class="terminal">
 
-                ${p.socials.map(item => `
-                    <a href="${item.url}">
-                        > ${item.name}
-                    </a>
-                `).join("")}
+    ${p.socials.map(item => `
+    <a href="${item.url}">
+      > ${item.name}
+    </a>
+    `).join("")}
 
-            </div>
+  </div>
 
-        </div>
-    `);
+</div>
+`);
 
 });

@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html lang="vi">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+		<title>TânPhan - Portfolio</title>
+		<meta charset='UTF-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+		<meta name='description' content='Chào mừng bạn đến với trang portfolio của TânPhan, nơi tôi chia sẻ về các dự án và kỹ năng của mình trong lĩnh vực phát triển web và lập trình.'>
+		<meta name='keywords' content='TânPhan, portfolio, phát triển web, lập trình, dự án, kỹ năng'>
+		<meta name='author' content='TânPhan'>
+		<meta name='robots' content='index, follow'>
+		<meta name='theme-color' content='#6afbea'>
 
-    <title>Phan Nhật Tân | Portfolio</title>
+		<meta property='og:title' content='TânPhan - Portfolio'>
+		<meta property='og:description' content='Chào mừng bạn đến với trang portfolio của TânPhan, nơi tôi chia sẻ về các dự án và kỹ năng của mình trong lĩnh vực phát triển web và lập trình.'>
+		<meta property='og:type' content='website'>
+		<meta property='og:site_name' content='Tân Phan'>
+		<meta property='og:locale' content='vi_VN'>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+		<meta name='twitter:card' content='summary_large_image'>
+		<meta name='twitter:title' content='TânPhan - Portfolio'>
+		<meta name='twitter:description' content='Chào mừng bạn đến với trang portfolio của TânPhan, nơi tôi chia sẻ về các dự án và kỹ năng của mình trong lĩnh vực phát triển web và lập trình.'>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<link rel='icon' href='./assets/media/logo.jpg' type='image/x-icon'>
+		<link rel='apple-touch-icon' href='./assets/media/logo.jpg'>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
-		<script src="https://unpkg.com/@studio-freight/lenis"></script>
-
+		<!-- STYLE -->
+		<link rel="stylesheet" href="./assets/css/index.css" />
     <link rel="stylesheet" href="./assets/css/style.css">
-</head>
 
-<body class="bg-black text-white">
-		<div id="loader">
-			<h1>TAN.</h1>
-		</div>
+		<!-- SCRIPT -->
+		<script src="./assets/js/index.js" defer></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis"></script>
+  </head>
 
-		<div class="noise"></div>
+  <body class="bg-black text-white">
+    <div id="loader">
+      <h1>TAN.</h1>
+    </div>
+
+    <div class="noise"></div>
 
     <div id="progressBar"></div>
 
@@ -36,35 +52,35 @@
     <div id="cursor"></div>
 
     <header class="fixed top-0 left-0 z-50 w-full">
-        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+      <div class="container mx-auto px-6 py-5 flex justify-between items-center">
 
-            <div class="text-xl font-bold tracking-widest">
-                TAN.
-            </div>
-
-            <nav class="hidden md:flex gap-8">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </nav>
-
+        <div class="text-xl font-bold tracking-widest">
+          TAN.
         </div>
+
+        <nav class="hidden md:flex gap-8">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+      </div>
     </header>
 
     <main>
 
-        <section id="hero"></section>
+      <section id="hero"></section>
 
-        <section id="about"></section>
+      <section id="about"></section>
 
-        <section id="skills"></section>
+      <section id="skills"></section>
 
-        <section id="projects"></section>
+      <section id="projects"></section>
 
-        <section id="timeline"></section>
+      <section id="timeline"></section>
 
-        <section id="contact"></section>
+      <section id="contact"></section>
 
     </main>
 
@@ -73,6 +89,6 @@
     <script src="./assets/js/three-scene.js"></script>
     <script src="./assets/js/app.js"></script>
 
-</body>
+  </body>
 
 </html>
