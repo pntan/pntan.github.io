@@ -28,7 +28,41 @@
 		<!-- SCRIPT -->
 		<script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
 		<script src="./assets/js/index.js" defer></script>
+		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+		<script type="importmap">
+        { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
+    </script>
 	</head>
 	<body>
+		<div class="app">
+			<header class="glass-card header">
+				<div class="logo">TânPhan<span>.</span></div>
+				<nav class="navbar">
+					<a href="#projects">Dự án</a>
+					<a href="#contact" class="btn-contact">Liên hệ</a>
+				</nav>
+			</header>
+
+			<main class="bento-container">
+				<section class="glass-card area-intro">
+					<h1>Phan Nhật Tân</h1>
+					<h2>Web Developer & Freelancer</h2>
+					<p>Sinh viên CNTT trường Cao đẳng Lý Tự Trọng. Đam mê Web, AI & 3D.</p>
+				</section>
+
+				<section class="glass-card area-avatar" id="canvas-container">
+				</section>
+
+				<section class="glass-card area-skills">
+					<h3>Kỹ Năng</h3>
+					<div class="skill-tags"><span>JS</span><span>PHP</span><span>Python</span><span>Three.js</span></div>
+				</section>
+				
+				<section class="glass-card area-projects" id="projects">
+					<h3>Dự Án</h3>
+					<p>Bot Discord, Quản lý Cafe, Quản lý Thư viện.</p>
+				</section>
+			</main>
+    </div>
 	</body>
 </html>
