@@ -1,68 +1,78 @@
 <!DOCTYPE html>
 <html lang="vi">
-	<head>
-		<title>TânPhan - Portfolio</title>
-		<meta charset='UTF-8'>
-		<meta name='viewport' content='width=device-width, initial-scale=1'>
-		<meta name='description' content='Chào mừng bạn đến với trang portfolio của TânPhan, nơi tôi chia sẻ về các dự án và kỹ năng của mình trong lĩnh vực phát triển web và lập trình.'>
-		<meta name='keywords' content='TânPhan, portfolio, phát triển web, lập trình, dự án, kỹ năng'>
-		<meta name='author' content='TânPhan'>
-		<meta name='robots' content='index, follow'>
 
-		<meta property='og:title' content='TânPhan - Portfolio'>
-		<meta property='og:description' content='Chào mừng bạn đến với trang portfolio của TânPhan, nơi tôi chia sẻ về các dự án và kỹ năng của mình trong lĩnh vực phát triển web và lập trình.'>
-		<meta property='og:type' content='website'>
-		<meta property='og:site_name' content='Tân Phan'>
-		<meta property='og:locale' content='vi_VN'>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<meta name='twitter:card' content='summary_large_image'>
-		<meta name='twitter:title' content='TânPhan - Portfolio'>
-		<meta name='twitter:description' content='Chào mừng bạn đến với trang portfolio của TânPhan, nơi tôi chia sẻ về các dự án và kỹ năng của mình trong lĩnh vực phát triển web và lập trình.'>
+    <title>Phan Nhật Tân | Portfolio</title>
 
-		<link rel='icon' href='./assets/media/logo.jpg' type='image/x-icon'>
-		<link rel='apple-touch-icon' href='./assets/media/logo.jpg'>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-		<!-- STYLE -->
-		<!-- <link rel="stylesheet" href="./assets/css/index.css" /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-		<!-- SCRIPT -->
-		<script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
-		<script src="./assets/js/index.js" defer></script>
-		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-		<script type="importmap">
-        { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }
-    </script>
-	</head>
-	<body>
-		<div class="app">
-			<header class="glass-card header">
-				<div class="logo">TânPhan<span>.</span></div>
-				<nav class="navbar">
-					<a href="#projects">Dự án</a>
-					<a href="#contact" class="btn-contact">Liên hệ</a>
-				</nav>
-			</header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
-			<main class="bento-container">
-				<section class="glass-card area-intro">
-					<h1>Phan Nhật Tân</h1>
-					<h2>Web Developer & Freelancer</h2>
-					<p>Sinh viên CNTT trường Cao đẳng Lý Tự Trọng. Đam mê Web, AI & 3D.</p>
-				</section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-				<section class="glass-card area-avatar" id="canvas-container">
-				</section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
-				<section class="glass-card area-skills">
-					<h3>Kỹ Năng</h3>
-					<div class="skill-tags"><span>JS</span><span>PHP</span><span>Python</span><span>Three.js</span></div>
-				</section>
-				
-				<section class="glass-card area-projects" id="projects">
-					<h3>Dự Án</h3>
-					<p>Bot Discord, Quản lý Cafe, Quản lý Thư viện.</p>
-				</section>
-			</main>
-    </div>
-	</body>
+		<script src="https://unpkg.com/@studio-freight/lenis"></script>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body class="bg-black text-white">
+		<div id="loader">
+			<h1>TAN.</h1>
+		</div>
+
+		<div class="noise"></div>
+
+    <div id="progressBar"></div>
+
+    <div id="three-container"></div>
+
+    <div id="cursor"></div>
+
+    <header class="fixed top-0 left-0 z-50 w-full">
+        <div class="container mx-auto px-6 py-5 flex justify-between items-center">
+
+            <div class="text-xl font-bold tracking-widest">
+                TAN.
+            </div>
+
+            <nav class="hidden md:flex gap-8">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <section id="hero"></section>
+
+        <section id="about"></section>
+
+        <section id="skills"></section>
+
+        <section id="projects"></section>
+
+        <section id="timeline"></section>
+
+        <section id="contact"></section>
+
+    </main>
+
+    <script src="./assets/js/data.js"></script>
+    <script src="./assets/js/render.js"></script>
+    <script src="./assets/js/three-scene.js"></script>
+    <script src="./assets/js/app.js"></script>
+
+</body>
+
 </html>

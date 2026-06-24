@@ -1,12 +1,5 @@
-#canvas-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    padding: 0;
+*{
+  margin: 0;
+  padding: 0;
+  border:0 ;
 }
-#canvas-container canvas {
-    width: 100% !important;
-    height: 100% !important;
-}
-/* Giữ nguyên các phần CSS Bento cũ của bạn */
