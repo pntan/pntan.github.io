@@ -2,10 +2,10 @@ const portfolioData = {
 
   profile: {
     name: "Phan Nhật Tân",
-    role: "Creative Web Developer",
+    role: "FREELANCER",
     avatar: "./assets/media/avt.png",
 
-    description: "Sinh viên CNTT trường Cao đẳng Lý Tự Trọng. Đam mê phát triển Web, Automation, AI và các sản phẩm mang lại giá trị thực tế."
+    description: "I'm a developer passionate about building modern web experiences, intelligent automation systems, and AI-powered applications that create real value. My work focuses on combining clean user interfaces, scalable architecture, and efficient workflows to transform ideas into practical digital products. From front-end development and interactive user experiences to back-end systems and automation pipelines, I enjoy crafting solutions that are both technically solid and user-centered. Currently studying Information Technology, I continuously explore emerging technologies, experiment with new tools, and challenge myself through personal projects, freelance work, and real-world problem solving. I believe great software is not just about writing code—it's about creating experiences that people genuinely enjoy and benefit from.'m a software developer focused on building modern web applications, automation systems, and AI-powered solutions that solve real-world problems. With a strong interest in user experience, performance, and scalable architecture, I enjoy transforming ideas into functional digital products. My work spans from responsive front-end interfaces to back-end systems, workflow automation, and intelligent tools that help businesses and individuals work more efficiently. Currently, I'm pursuing a degree in Information Technology while continuously exploring new technologies, frameworks, and creative ways to bridge design with engineering."
   },
 
   socials: [
