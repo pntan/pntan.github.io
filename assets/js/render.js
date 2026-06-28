@@ -5,7 +5,7 @@ $(function() {
   $("#hero").html(`
 <div class="min-h-screen flex items-center container mx-auto px-6">
 
-  <div class="w-full">
+  <div class="max-w-3xl">
 
     <p class="text-zinc-500 tracking-[5px] mb-4">
       PORTFOLIO
@@ -32,7 +32,7 @@ $(function() {
       ${p.profile.role}
     </h2>
 
-    <p class="mt-2 text-zinc-500 leading-8 w-full">
+    <p class="mt-8 text-zinc-500 leading-8 max-w-xl">
       ${p.profile.description}
     </p>
 
