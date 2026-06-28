@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap'
+);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #050505;
+}
+
+#three-container {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  opacity: .15;
+}
+
+#progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background: #fff;
+  z-index: 9999;
+}
+
+.hero-title {
+  font-size: clamp(60px, 12vw, 140px);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.section-title {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 16px;
+  filter: grayscale(100%);
+}
+
+.about-text {
+  color: #999;
+  line-height: 2;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 10px;
+  background: #151515;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  width: 0;
+  background: #fff;
+}
+
+.project-card {
+  border: 1px solid #222;
+  padding: 32px;
+  transition: .4s;
+  background: #0d0d0d;
+}
+
+.project-card:hover {
+  transform:
+    translateY(-10px);
+}
+
+.tag {
+  border: 1px solid #333;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.timeline-item {
+  padding: 40px 0;
+  border-left: 1px solid #333;
+  padding-left: 40px;
+}
+
+.year {
+  color: #777;
+}
+
+.terminal {
+  border: 1px solid #222;
+  padding: 30px;
+  background: #0b0b0b;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.terminal a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.letter {
+
+  display: inline-block;
+
+  opacity: 0;
+
+  transform: translateY(100px);
+
+}
+
+#cursor {
+
+  width: 20px;
+
+  height: 20px;
+
+  border: 1px solid #fff;
+
+  border-radius: 50%;
+
+  position: fixed;
+
+  pointer-events: none;
+
+  z-index: 99999;
+
+  transform:
+    translate(-50%, -50%);
+}
+
+.project-card {
+
+  transform-style:
+    preserve-3d;
+}
+
+.marquee {
+
+  white-space: nowrap;
+
+  animation:
+    marquee 20s linear infinite;
+
+  font-size: 100px;
+
+  font-weight: 900;
+
+  opacity: .05;
+
+}
+
+@keyframes marquee {
+
+  from {
+    transform:
+      translateX(0);
+  }
+
+  to {
+    transform:
+      translateX(-50%);
+  }
+
+}
+
+.noise {
+
+  position: fixed;
+
+  inset: 0;
+
+  opacity: .03;
+
+  pointer-events: none;
+
+  /* background-image:url(
+https://grainy-gradients.vercel.app/noise.svg
+); */
+
+  z-index: 999;
+}
+
+#loader {
+
+  position: fixed;
+
+  inset: 0;
+
+  background: black;
+
+  z-index: 999999;
+
+  display: flex;
+
+  justify-content: center;
+
+  overflow: hidden;
+
+  align-items: center;
+
+}
